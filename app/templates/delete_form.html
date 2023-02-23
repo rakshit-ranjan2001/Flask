@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <h1>Delete a student record.</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <form action="/delete" method="post">
+            <label>Roll No.:</label><br>
+            <input type="number" id="roll" name="roll" value="0"><br><br>
+            <input type="submit" value="Delete">
+        </form>
+        <a href="{{url_for('welcome')}}"><button>Go back</button></a>
+    </body>
+</html>

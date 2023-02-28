@@ -50,9 +50,9 @@ def viewsingle():
         rolls=[i[0] for i in cur.fetchall()]
         if roll!=0 and (roll in rolls):
             cur.execute("select * from student where roll={}".format(roll))
-            # temp=[i for i in cur.fetchall()]
-            # t=[i for i in temp[0]]
-            t=[i for i in cur.fetchall()]
+            temp=[i for i in cur.fetchall()]
+            t=[i for i in temp[0]]
+            # t=[i for i in cur.fetchall()]
             return render_template('view_single.html',rows=t)
     return redirect(url_for("view"))
 

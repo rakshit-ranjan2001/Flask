@@ -38,17 +38,23 @@ def create():
 
 @app.route('/view',methods=['POST',"GET"])
 def view():
+    cur.execute('select * from student')
+    t=[i for i in cur.fetchall()]
+    return render_template('view_form.html',rows=t)
+
+@app.route('/view-single',methods=['POST','GET'])
+def viewsingle():
     if request.method=="POST":
         roll=int(request.form['roll'])
         cur.execute('select roll from student')
         rolls=[i[0] for i in cur.fetchall()]
         if roll!=0 and (roll in rolls):
-            cur.execute('select * from student where roll={}'.format(roll))
-            t=[i for i in cur.fetchall()]
-            return render_template('view_form.html',rows=t)
-    cur.execute('select * from student')
-    t=[i for i in cur.fetchall()]
-    return render_template('view_form.html',rows=t)
+            cur.execute("select * from student where roll={}".format(roll))
+            temp=[i for i in cur.fetchall()]
+            t=[i for i in temp[0]]
+            return render_template('view_single.html',rows=t)
+    t=['null','null','null','null','null','null']
+    return render_template("view_single.html",rows=t)
 
 @app.route('/update',methods=['POST',"GET"])
 def update():

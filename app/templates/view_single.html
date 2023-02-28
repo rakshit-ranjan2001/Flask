@@ -3,7 +3,7 @@
         <h1>View a student's record.</h1>
         <a href="{{url_for('welcome')}}"><button>Go back to home</button></a>
         <a href="{{url_for('view')}}"><button>Go back to see all</button></a>
-        <form action="/view-single" method="post">
+        <form action="/viewsingle" method="post">
             <label>Roll no.:</label>
             <input type="number" id="roll" name="roll" value="0"><br>
             <input type="submit" value="View">

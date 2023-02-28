@@ -1,7 +1,7 @@
 <html>
     <body>
         <h1>View all student records.<a href="{{url_for('welcome')}}"><button>Go back</button></a></h1>
-        <form action="/viewsingle" method="post">
+        <form action="/view" method="post">
             <label>Roll No.:</label><br>
             <input type="number" id="roll" name="roll" value="0"><br><br>
             <input type="submit" value="View">
